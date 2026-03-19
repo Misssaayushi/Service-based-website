@@ -20,8 +20,14 @@
             darkMode: 'class',
             theme: {
                 extend: {
-                    colors: { primary: '#800180', primaryLight: '#a302a3' },
-                    fontFamily: { sans: ['Outfit', 'sans-serif'] }
+                    colors: {
+                        primary: '#800180',
+                        primaryLight: '#a302a3',
+                        primaryLighter: '#d98cd9',
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    }
                 }
             }
         }
@@ -96,5 +102,27 @@
             alert('Form submitted! We will get back to you shortly.');
         });
     </script>
+<nav class="md:hidden fixed bottom-6 left-4 right-4 z-50 bg-white/95 dark:bg-[#121212]/95 border border-gray-200 dark:border-gray-800 rounded-full shadow-[0_8px_32px_rgba(0,0,0,0.5)] flex justify-around items-center px-2 py-3 backdrop-blur-md bg-opacity-95">
+        <a href="index.html" class="flex flex-col items-center justify-center w-14 transition-colors text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-gray-200">
+            <i class="ph ph-house text-2xl mb-1"></i>
+            <span class="text-[10px] font-medium tracking-wide">Home</span>
+        </a>
+        <a href="about.html" class="flex flex-col items-center justify-center w-14 transition-colors text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-gray-200">
+            <i class="ph ph-info text-2xl mb-1"></i>
+            <span class="text-[10px] font-medium tracking-wide">About</span>
+        </a>
+        <a href="services.html" class="flex flex-col items-center justify-center w-14 transition-colors text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-gray-200">
+            <i class="ph ph-sparkle text-2xl mb-1"></i>
+            <span class="text-[10px] font-medium tracking-wide">Services</span>
+        </a>
+        <a href="portfolio.html" class="flex flex-col items-center justify-center w-14 transition-colors text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-gray-200">
+            <i class="ph ph-image text-2xl mb-1"></i>
+            <span class="text-[10px] font-medium tracking-wide">Portfolio</span>
+        </a>
+        <a href="contact.html" class="flex flex-col items-center justify-center w-14 transition-colors text-primary dark:text-primaryLighter">
+            <i class="ph-fill ph-envelope-simple text-2xl mb-1"></i>
+            <span class="text-[10px] font-medium tracking-wide">Contact</span>
+        </a>
+    </nav>
 </body>
 </html>
