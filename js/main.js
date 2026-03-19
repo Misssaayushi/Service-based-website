@@ -1,73 +1,119 @@
+/**
+ * C Advertisement Main JS
+ */
+
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Navigation Scroll Effect
-    const navbar = document.querySelector('.navbar');
     
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    });
-
-    // 1.5 Theme Toggle Logic
-    const themeToggles = document.querySelectorAll('.theme-toggle');
-    const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
-    
-    // Check for saved theme preference or system preference
-    const currentTheme = localStorage.getItem("theme");
-    if (currentTheme == "dark" || (!currentTheme && prefersDarkScheme.matches)) {
-        document.body.classList.add("dark-mode");
-        updateThemeIcons("dark");
-    }
-
-    themeToggles.forEach(toggle => {
-        toggle.addEventListener("click", function() {
-            document.body.classList.toggle("dark-mode");
-            let theme = "light";
-            if (document.body.classList.contains("dark-mode")) {
-                theme = "dark";
-            }
-            updateThemeIcons(theme);
-            localStorage.setItem("theme", theme);
-        });
-    });
-
-    function updateThemeIcons(theme) {
-        themeToggles.forEach(btn => {
-            const icon = btn.querySelector('i');
-            if (theme === "dark") {
-                icon.classList.remove('ph-moon');
-                icon.classList.add('ph-sun');
-            } else {
-                icon.classList.remove('ph-sun');
-                icon.classList.add('ph-moon');
-            }
+    // 1. Mobile Menu Toggle (if needed down the line, simple alert for now)
+    const mobileMenuBtn = document.querySelector('button[aria-label="Open Menu"]');
+    if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', () => {
+            alert('Mobile menu to be implemented. Currently in Phase 1.');
         });
     }
 
-    // Mobile menu toggle logic removed in favor of CSS-only floating bottom bar.
-
-    // 3. Scroll Reveal Animations
-    const revealElements = document.querySelectorAll('.reveal');
+    // 2. Intersection Observer for Scroll Reveals
+    const revealElements = document.querySelectorAll('.reveal-fade-up');
     
     const revealOptions = {
-        threshold: 0.1,
+        threshold: 0.15,
         rootMargin: "0px 0px -50px 0px"
     };
 
-    const revealOnScroll = new IntersectionObserver((entries, observer) => {
+    const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
-            if (!entry.isIntersecting) {
-                return;
-            } else {
+            if (entry.isIntersecting) {
                 entry.target.classList.add('active');
-                observer.unobserve(entry.target);
+                observer.unobserve(entry.target); // Reveal only once
             }
         });
     }, revealOptions);
 
     revealElements.forEach(el => {
-        revealOnScroll.observe(el);
+        revealObserver.observe(el);
     });
+
+    // 3. Stats Count-Up Animation with Intersection Observer
+    const statElements = document.querySelectorAll('.stat-number');
+    
+    // Function to run the count up
+    const runCountUp = (el) => {
+        const target = parseInt(el.getAttribute('data-target'), 10);
+        const duration = 2000; // 2 seconds
+        const stepTime = Math.abs(Math.floor(duration / target));
+        let count = 0;
+        
+        const timer = setInterval(() => {
+            count += 1;
+            el.textContent = count;
+            if (count >= target) {
+                clearInterval(timer);
+                el.textContent = target; // Ensure it ends exactly on target
+            }
+        }, stepTime);
+    };
+
+    const statsOptions = {
+        threshold: 0.5 // Trigger when stat section is 50% visible
+    };
+
+    const statsObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Find all stats within this section and animate them
+                const stats = entry.target.querySelectorAll('.stat-number');
+                stats.forEach(stat => runCountUp(stat));
+                
+                // Unobserve the section after triggering
+                observer.unobserve(entry.target);
+            }
+        });
+    }, statsOptions);
+
+    // Observe the stats section
+    const statsSection = document.querySelector('section.bg-primary');
+    if (statsSection) {
+        statsObserver.observe(statsSection);
+    }
+
+    // 4. Dark Mode Toggle
+    const themeToggleDarkIcons = document.querySelectorAll('#theme-toggle-dark-icon-desktop, #theme-toggle-dark-icon-mobile');
+    const themeToggleLightIcons = document.querySelectorAll('#theme-toggle-light-icon-desktop, #theme-toggle-light-icon-mobile');
+    const themeToggleBtns = document.querySelectorAll('#theme-toggle-desktop, #theme-toggle-mobile');
+
+    if (themeToggleBtns.length > 0) {
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcons.forEach(icon => icon.classList.remove('hidden'));
+            document.documentElement.classList.add('dark');
+        } else {
+            themeToggleDarkIcons.forEach(icon => icon.classList.remove('hidden'));
+            document.documentElement.classList.remove('dark');
+        }
+
+        themeToggleBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                themeToggleDarkIcons.forEach(icon => icon.classList.toggle('hidden'));
+                themeToggleLightIcons.forEach(icon => icon.classList.toggle('hidden'));
+
+                if (localStorage.getItem('color-theme')) {
+                    if (localStorage.getItem('color-theme') === 'light') {
+                        document.documentElement.classList.add('dark');
+                        localStorage.setItem('color-theme', 'dark');
+                    } else {
+                        document.documentElement.classList.remove('dark');
+                        localStorage.setItem('color-theme', 'light');
+                    }
+                } else {
+                    if (document.documentElement.classList.contains('dark')) {
+                        document.documentElement.classList.remove('dark');
+                        localStorage.setItem('color-theme', 'light');
+                    } else {
+                        document.documentElement.classList.add('dark');
+                        localStorage.setItem('color-theme', 'dark');
+                    }
+                }
+            });
+        });
+    }
+
 });

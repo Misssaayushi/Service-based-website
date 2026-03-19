@@ -1,168 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us | ImpactOutdoors</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
+    <title>Contact | C Advertisement</title>
     
-    <nav class="navbar">
-        <div class="container nav-container">
-            <a href="index.html" class="logo">
-                <i class="ph ph-megaphone"></i> Impact<span class="text-primary">Outdoors</span>
-            </a>
-            <div class="nav-links">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="services.html">Services</a>
-                <a href="portfolio.html">Portfolio</a>
-                <a href="contact.html" class="active btn btn-outline">Contact Us</a>
-                <button class="theme-toggle" aria-label="Toggle Dark Mode">
-                    <i class="ph ph-moon"></i>
-                </button>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: { primary: '#800180', primaryLight: '#a302a3' },
+                    fontFamily: { sans: ['Outfit', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <script>
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {document.documentElement.classList.add('dark');} else {document.documentElement.classList.remove('dark');}
+    </script>
+</head>
+<body class="font-sans text-gray-800 dark:text-gray-100 dark:text-gray-200 antialiased bg-gray-50 dark:bg-[#121212] flex flex-col min-h-screen">
+    
+    <!-- Navigation -->
+    <header class="fixed w-full top-0 z-50 bg-white dark:bg-[#121212]/90 backdrop-blur-md shadow-sm border-b border-gray-100 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex items-center space-x-2 text-primary dark:text-primaryLighter font-bold text-2xl" aria-label="C Advertisement Home">
+                    <img src="assets/Logo/C-ad without tagline.png" alt="C Advertisement Logo" class="h-10 w-auto">
+                    <span>C Advertisement</span>
+                </a>
+                
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primaryLighter transition-colors">Home</a>
+                    <a href="about.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primaryLighter transition-colors">About</a>
+                    <a href="services.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primaryLighter transition-colors">Services</a>
+                    <a href="portfolio.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primaryLighter transition-colors">Portfolio</a>
+                    
+                    <button id="theme-toggle-desktop" type="button" class="text-gray-600 dark:text-gray-300 dark:text-gray-400 hover:text-primary dark:hover:text-primaryLighter transition-colors text-2xl mr-6 outline-none focus:outline-none flex items-center justify-center translate-y-0.5" aria-label="Toggle dark mode">
+                        <i id="theme-toggle-dark-icon-desktop" class="ph ph-moon hidden"></i>
+                        <i id="theme-toggle-light-icon-desktop" class="ph ph-sun hidden"></i>
+                    </button>
+
+                    <a href="contact.html" class="px-5 py-2.5 bg-primary text-white font-medium rounded-full shadow-lg shadow-primary/30 hover:bg-primaryLight hover:shadow-xl transition-all">Contact Us</a>
+                </nav>
             </div>
         </div>
-    </nav>
+    </header>
     
-    <main>
-        <section class="page-hero section-padding bg-subtle">
-            <div class="container text-center reveal">
-                <h1>Get In <span class="text-primary">Touch</span></h1>
-                <p class="subtext mx-auto">Ready to launch your next big campaign? Our experts are here to help.</p>
-            </div>
-        </section>
-
-        <section class="section-padding">
-            <div class="container contact-container">
-                <div class="contact-info reveal">
-                    <h2 style="font-size: 2rem; margin-bottom: 24px;">Let's Talk Business</h2>
-                    <p class="mb-40 text-muted">Reach out to us to discuss availability, pricing, and campaign strategy.</p>
-                    
-                    <div class="info-card">
-                        <i class="ph-fill ph-map-pin text-primary"></i>
-                        <div>
-                            <h4>Headquarters</h4>
-                            <p>123 Visibility Ave, Ad City, AC 10001</p>
-                        </div>
-                    </div>
-                    <div class="info-card">
-                        <i class="ph-fill ph-phone text-primary"></i>
-                        <div>
-                            <h4>Phone</h4>
-                            <p>+1 (555) 123-4567</p>
-                        </div>
-                    </div>
-                    <div class="info-card">
-                        <i class="ph-fill ph-envelope-simple text-primary"></i>
-                        <div>
-                            <h4>Email</h4>
-                            <p>hello@impactoutdoors.com</p>
-                        </div>
-                    </div>
+    <main class="flex-grow pt-32 pb-24">
+        <div class="max-w-3xl mx-auto px-4 text-center">
+            <h1 class="text-5xl font-bold text-gray-900 dark:text-white mb-6">Contact <span class="text-primary">Us</span></h1>
+            <p class="text-xl text-gray-600 dark:text-gray-300 mb-12">Ready to kick off a high-impact campaign? Let's talk.</p>
+            
+            <form class="bg-white dark:bg-[#1e1e1e] p-8 rounded-3xl shadow-md border border-gray-100 dark:border-gray-800 text-left" aria-label="Contact Form">
+                <div class="mb-6">
+                    <label class="block text-gray-700 dark:text-gray-300 font-medium mb-2" for="name">Your Name</label>
+                    <input type="text" id="name" class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-800 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:focus:border-primary transition-all" placeholder="John Doe">
                 </div>
-                
-                <div class="contact-form-wrapper reveal" style="transition-delay: 0.2s;">
-                    <form class="contact-form">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" placeholder="John Doe">
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" placeholder="john@company.com">
-                        </div>
-                        <div class="form-group">
-                            <label for="service">Interested Service</label>
-                            <select id="service">
-                                <option>Billboard Advertising</option>
-                                <option>Digital DOOH</option>
-                                <option>Transit Media</option>
-                                <option>Hoardings</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" rows="5" placeholder="Tell us about your campaign goals..."></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary w-100" style="width: 100%;">Send Message</button>
-                    </form>
+                <div class="mb-6">
+                    <label class="block text-gray-700 dark:text-gray-300 font-medium mb-2" for="email">Your Email</label>
+                    <input type="email" id="email" class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-800 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:focus:border-primary transition-all" placeholder="john@example.com">
                 </div>
-            </div>
-        </section>
+                <div class="mb-6">
+                    <label class="block text-gray-700 dark:text-gray-300 font-medium mb-2" for="message">Message</label>
+                    <textarea id="message" rows="4" class="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-800 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:focus:border-primary transition-all" placeholder="Tell us about your campaign..."></textarea>
+                </div>
+                <button type="submit" class="w-full py-4 bg-primary text-white font-bold rounded-xl shadow-lg hover:bg-primaryLight transition-all">Send Message</button>
+            </form>
+        </div>
     </main>
     
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container footer-grid">
-            <div class="footer-brand">
-                <a href="index.html" class="logo">
-                    <i class="ph ph-megaphone"></i> Impact<span class="text-primary">Outdoors</span>
-                </a>
-                <p>Elevating brands through high-impact outdoor visibility across the nation.</p>
-                <div class="social-links">
-                    <a href="#" aria-label="Facebook"><i class="ph ph-facebook-logo"></i></a>
-                    <a href="#" aria-label="Twitter"><i class="ph ph-twitter-logo"></i></a>
-                    <a href="#" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
-                </div>
-            </div>
-            
-            <div class="footer-links">
-                <h3>Quick Links</h3>
-                <a href="index.html">Home</a>
-                <a href="about.html">About Us</a>
-                <a href="portfolio.html">Our Portfolio</a>
-                <a href="contact.html">Contact</a>
-            </div>
-            
-            <div class="footer-services">
-                <h3>Our Services</h3>
-                <a href="services.html">Billboard Advertising</a>
-                <a href="services.html">Digital Outdoor Ads</a>
-                <a href="services.html">Transit Media</a>
-                <a href="services.html">Hoardings</a>
-            </div>
-            
-            <div class="footer-contact">
-                <h3>Contact Us</h3>
-                <p><i class="ph ph-map-pin"></i> 123 Visibility Ave, Ad City, AC 10001</p>
-                <p><i class="ph ph-phone"></i> +1 (555) 123-4567</p>
-                <p><i class="ph ph-envelope-simple"></i> hello@impactoutdoors.com</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; <script>document.write(new Date().getFullYear())</script> ImpactOutdoors. Built for impact.</p>
-        </div>
+    <footer class="bg-gray-900 text-white py-8 text-center mt-auto">
+        <p>&copy; <span id="year"></span> C Advertisement. All rights reserved.</p>
     </footer>
     
-    <!-- Mobile Bottom Navigation -->
-    <nav class="mobile-nav">
-        <a href="index.html" class="mobile-nav-item">
-            <i class="ph ph-house"></i>
-            <span class="mobile-nav-text">Home</span>
-        </a>
-        <a href="about.html" class="mobile-nav-item">
-            <i class="ph ph-info"></i>
-            <span class="mobile-nav-text">About</span>
-        </a>
-        <a href="services.html" class="mobile-nav-item">
-            <i class="ph ph-sparkle"></i>
-            <span class="mobile-nav-text">Services</span>
-        </a>
-        <a href="portfolio.html" class="mobile-nav-item">
-            <i class="ph ph-image"></i>
-            <span class="mobile-nav-text">Portfolio</span>
-        </a>
-        <a href="contact.html" class="mobile-nav-item active">
-            <i class="ph ph-envelope-simple"></i>
-            <span class="mobile-nav-text">Contact</span>
-        </a>
-    </nav>
-
     <script src="js/main.js"></script>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Form submitted! We will get back to you shortly.');
+        });
+    </script>
 </body>
 </html>

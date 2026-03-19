@@ -1,181 +1,278 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Outdoor Advertising That Drives Real Results</title>
-    <meta name="description" content="We help brands reach millions through billboards, hoardings, and transit advertising.">
+    <title>C Advertisement | Outdoor Advertising</title>
+    <meta name="description" content="Welcome to C Advertisement. We provide premium outdoor advertising, billboards, hoardings, and transit media campaigns.">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
     
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#800180',
+                        primaryLight: '#a302a3',
+                        primaryLighter: '#d98cd9',
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
+
+
+    <script>
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {document.documentElement.classList.add('dark');} else {document.documentElement.classList.remove('dark');}
+    </script>
 </head>
-<body>
+<body class="font-sans text-gray-800 dark:text-gray-100 dark:text-gray-200 antialiased bg-gray-50 dark:bg-[#121212] flex flex-col min-h-screen">
     
     <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container nav-container">
-            <a href="index.html" class="logo">
-                <i class="ph ph-megaphone"></i> Impact<span class="text-primary">Outdoors</span>
-            </a>
-            
-            <div class="nav-links">
-                <a href="index.html" class="active">Home</a>
-                <a href="about.html">About</a>
-                <a href="services.html">Services</a>
-                <a href="portfolio.html">Portfolio</a>
-                <button class="theme-toggle" aria-label="Toggle Dark Mode">
-                    <i class="ph ph-moon"></i>
+    <header class="fixed w-full top-0 z-50 bg-white dark:bg-[#121212]/90 backdrop-blur-md shadow-sm border-b border-gray-100 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <a href="index.html" class="flex items-center space-x-2 text-primary dark:text-primaryLighter font-bold text-2xl" aria-label="C Advertisement Home">
+                    <img src="assets/Logo/C-ad without tagline.png" alt="C Advertisement Logo" class="h-10 w-auto">
+                    <span>C Advertisement</span>
+                </a>
+                
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="text-primary dark:text-primaryLighter font-semibold transition-colors">Home</a>
+                    <a href="about.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primaryLighter transition-colors">About</a>
+                    <a href="services.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primaryLighter transition-colors">Services</a>
+                    <a href="portfolio.html" class="text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primaryLighter transition-colors">Portfolio</a>
+                    
+                    <button id="theme-toggle-desktop" type="button" class="text-gray-600 dark:text-gray-300 dark:text-gray-400 hover:text-primary dark:hover:text-primaryLighter transition-colors text-2xl mr-6 outline-none focus:outline-none flex items-center justify-center translate-y-0.5" aria-label="Toggle dark mode">
+                        <i id="theme-toggle-dark-icon-desktop" class="ph ph-moon hidden"></i>
+                        <i id="theme-toggle-light-icon-desktop" class="ph ph-sun hidden"></i>
+                    </button>
+
+                    <a href="contact.html" class="px-5 py-2.5 bg-primary text-white font-medium rounded-full shadow-lg shadow-primary/30 hover:bg-primaryLight hover:shadow-xl transition-all transform hover:-translate-y-0.5">Contact Us</a>
+                </nav>
+
+                <div class="flex items-center space-x-4">
+
+                    <button id="theme-toggle-mobile" type="button" class="md:hidden text-gray-600 dark:text-gray-300 dark:text-gray-400 hover:text-primary dark:hover:text-primaryLighter transition-colors text-2xl outline-none focus:outline-none" aria-label="Toggle dark mode">
+                        <i id="theme-toggle-dark-icon-mobile" class="ph ph-moon hidden"></i>
+                        <i id="theme-toggle-light-icon-mobile" class="ph ph-sun hidden"></i>
+                    </button>
+
+                    <button class="md:hidden text-gray-600 dark:text-gray-300 hover:text-primary focus:outline-none" aria-label="Open Menu">
+                    <i class="ph ph-list text-3xl"></i>
                 </button>
-                <a href="contact.html" class="btn btn-outline">Contact Us</a>
-            </div>
-            
-        </div>
-    </nav>
-    
-    <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="container hero-grid">
-                <div class="hero-content reveal">
-                    <h1>Outdoor Advertising That Drives <span class="text-primary">Real Results</span></h1>
-                    <p class="subtext">We help brands reach millions through premium billboards, strategic hoardings, and dynamic transit advertising networks.</p>
-                    <div class="hero-actions">
-                        <a href="contact.html" class="btn btn-primary">Get a Quote</a>
-                        <a href="portfolio.html" class="btn btn-secondary">View Our Work</a>
-                    </div>
                 </div>
-                <div class="hero-image reveal" style="transition-delay: 0.2s;">
-                    <img src="images/hero_billboard.png" alt="Modern Digital Billboard">
-                    <div class="hero-shape"></div>
+            </div>
+        </div>
+    </header>
+    
+    <main class="flex-grow pt-20">
+        
+        <!-- HERO SECTION -->
+        <section class="relative bg-white dark:bg-[#121212] pt-24 pb-32 overflow-hidden lg:pt-36 lg:pb-40">
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/10 via-white dark:via-[#121212] to-white dark:to-[#121212] pointer-events-none"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+                <div class="max-w-3xl mx-auto text-center reveal-fade-up">
+                    <span class="inline-block py-1 px-3 rounded-full bg-primary/10 text-primary dark:text-primaryLighter font-medium text-sm mb-6 border border-primary/20">Outdoor Advertising Excellence</span>
+                    <h1 class="text-5xl md:text-7xl font-bold tracking-tight text-gray-900 dark:text-white mb-8">
+                        Welcome to <span class="bg-clip-text text-transparent bg-gradient-to-r from-primary to-primaryLight dark:from-primaryLighter dark:to-[#f0b3f0]">C Advertisement</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-10 leading-relaxed font-light">
+                        We take your brand straight to your audience. Elevate your presence through premium outdoor, mall, cinema, and indoor advertising solutions that command attention everywhere.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center gap-4">
+                        <a href="contact.html" class="px-8 py-4 bg-primary text-white font-semibold rounded-full shadow-xl shadow-primary/30 hover:bg-primaryLight hover:shadow-2xl transition-all transform hover:-translate-y-1 flex items-center justify-center">
+                            Contact Us <i class="ph-bold ph-arrow-right ml-2"></i>
+                        </a>
+                        <a href="portfolio.html" class="px-8 py-4 bg-white dark:bg-[#121212] text-gray-800 dark:text-gray-100 font-semibold rounded-full border border-gray-200 dark:border-gray-800 shadow-md hover:border-gray-300 hover:shadow-lg transition-all flex items-center justify-center">
+                            View Portfolio
+                        </a>
+                    </div>
                 </div>
             </div>
         </section>
         
-        <!-- Services Section -->
-        <section class="services section-padding bg-subtle">
-            <div class="container">
-                <div class="section-header text-center reveal">
-                    <h2>Our Core <span class="text-primary">Services</span></h2>
-                    <p>High-impact outdoor solutions tailored to maximize your brand's reach.</p>
+        <!-- STATS SECTION (Animated) -->
+        <section class="py-20 bg-primary text-white relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
+                    
+                    <!-- Left: Stats -->
+                    <div class="w-full lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-8 text-center sm:text-left divide-y sm:divide-y-0 sm:divide-x divide-white/20">
+                        <div class="pb-6 sm:pb-0 sm:pr-8 reveal-fade-up" style="transition-delay: 100ms;">
+                            <div class="text-6xl md:text-7xl font-bold mb-2 flex items-center justify-center sm:justify-start">
+                                <span class="stat-number" data-target="100">0</span>+
+                            </div>
+                            <div class="text-white/90 font-medium uppercase tracking-wider text-sm">Premium Sites</div>
+                        </div>
+                        <div class="pt-6 sm:pt-0 sm:px-8 reveal-fade-up" style="transition-delay: 200ms;">
+                            <div class="text-6xl md:text-7xl font-bold mb-2 flex items-center justify-center sm:justify-start">
+                                <span class="stat-number" data-target="7">0</span>
+                            </div>
+                            <div class="text-white/90 font-medium uppercase tracking-wider text-sm">Major Cities</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right: CTA -->
+                    <div class="w-full lg:w-1/2 text-center lg:text-right reveal-fade-up" style="transition-delay: 300ms;">
+                        <p class="text-xl text-white/90 mb-6 font-light max-w-sm mx-auto lg:ml-auto lg:mr-0 pl-0 lg:pl-10 text-center lg:text-right">Join hundreds of brands that trust us for unparalleled outdoor visibility.</p>
+                        <a href="contact.html" class="inline-block px-8 py-3 bg-white dark:bg-[#121212] text-primary font-bold rounded-full shadow-lg hover:bg-gray-50 dark:bg-[#121212]:bg-gray-700 hover:shadow-xl transition-all transform hover:-translate-y-1">
+                            Learn More
+                        </a>
+                    </div>
+                    
                 </div>
-                <div class="services-grid">
-                    <div class="service-card reveal" style="transition-delay: 0.1s;">
-                        <div class="service-icon"><i class="ph ph-presentation-chart"></i></div>
-                        <h3>Billboard Advertising</h3>
-                        <p>Dominate the skyline with prime billboard locations on major highways and city centers.</p>
-                        <a href="services.html" class="service-link">Learn more <i class="ph ph-arrow-right"></i></a>
+            </div>
+        </section>
+
+        <!-- WHO WE ARE SECTION -->
+        <section class="py-24 bg-gray-50 dark:bg-[#121212]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-4xl mx-auto text-center reveal-fade-up">
+                    <h2 class="text-primary dark:text-primaryLighter font-bold tracking-wider uppercase text-sm mb-3">Who We Are</h2>
+                    <h3 class="text-4xl font-bold text-gray-900 dark:text-white mb-8">Connecting Brands with People</h3>
+                    <p class="text-xl text-gray-600 dark:text-gray-300 leading-relaxed font-light mb-10">
+                        At C Advertisement, we believe that advertising should do more than simply exist—it must captivate. From commanding outdoor spectacles and immersive cinema campaigns, to strategic mall placements and engaging indoor branding, we ensure your message reaches the right audience everywhere they go.
+                    </p>
+                    <a href="about.html" class="inline-flex items-center text-primary dark:text-primaryLighter font-bold hover:text-primaryLight dark:hover:text-[#f0b3f0] transition-colors text-lg group">
+                        Discover Our Story 
+                        <i class="ph-bold ph-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES SECTION -->
+        <section class="py-24 bg-white dark:bg-[#121212] relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16 reveal-fade-up">
+                    <h2 class="text-primary dark:text-primaryLighter font-bold tracking-wider uppercase text-sm mb-3">What We Do</h2>
+                    <h3 class="text-4xl font-bold text-gray-900 dark:text-white">Our Services</h3>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Service 1: Outdoor Ads -->
+                    <div class="relative bg-white dark:bg-[#1e1e1e] rounded-2xl p-6 md:p-8 shadow-[0_4px_20px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(128,1,128,0.12)] hover:-translate-y-2 transition-all duration-300 group overflow-hidden border border-gray-100 dark:border-gray-800 flex flex-col h-full reveal-fade-up" style="transition-delay: 100ms;">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                        <div class="w-full h-32 bg-gray-50 dark:bg-[#1e1e1e] rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary/5 transition-colors duration-300">
+                            <i class="ph-fill ph-signpost text-5xl text-primary"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Outdoor-Ads</h4>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed flex-grow">Premium large-format displays ensuring your brand gets maximum street-level visibility.</p>
+                        <a href="services.html" class="inline-flex items-center text-primary dark:text-primaryLighter font-bold tracking-wider text-sm uppercase group/link mt-auto transition-colors hover:text-primaryLight">
+                            Learn More 
+                            <i class="ph-bold ph-arrow-right ml-2 transform group-hover/link:translate-x-1 transition-transform duration-300"></i>
+                        </a>
                     </div>
-                    <div class="service-card reveal" style="transition-delay: 0.2s;">
-                        <div class="service-icon"><i class="ph ph-buildings"></i></div>
-                        <h3>Hoardings</h3>
-                        <p>Strategic placements at construction sites and premium urban locations for maximum pedestrian views.</p>
-                        <a href="services.html" class="service-link">Learn more <i class="ph ph-arrow-right"></i></a>
+                    
+                    <!-- Service 2: Mall Ads -->
+                    <div class="relative bg-white dark:bg-[#1e1e1e] rounded-2xl p-6 md:p-8 shadow-[0_4px_20px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(128,1,128,0.12)] hover:-translate-y-2 transition-all duration-300 group overflow-hidden border border-gray-100 dark:border-gray-800 flex flex-col h-full reveal-fade-up" style="transition-delay: 200ms;">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                        <div class="w-full h-32 bg-gray-50 dark:bg-[#1e1e1e] rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary/5 transition-colors duration-300">
+                            <i class="ph-fill ph-storefront text-5xl text-primary"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Mall-Ads</h4>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed flex-grow">High-impact advertising in premium shopping centers to capture ready-to-buy shoppers.</p>
+                        <a href="services.html" class="inline-flex items-center text-primary dark:text-primaryLighter font-bold tracking-wider text-sm uppercase group/link mt-auto transition-colors hover:text-primaryLight">
+                            Learn More 
+                            <i class="ph-bold ph-arrow-right ml-2 transform group-hover/link:translate-x-1 transition-transform duration-300"></i>
+                        </a>
                     </div>
-                    <div class="service-card reveal" style="transition-delay: 0.3s;">
-                        <div class="service-icon"><i class="ph ph-bus"></i></div>
-                        <h3>Transit Media</h3>
-                        <p>Take your message on the move with full bus wraps, train panels, and transit shelter ads.</p>
-                        <a href="services.html" class="service-link">Learn more <i class="ph ph-arrow-right"></i></a>
+                    
+                    <!-- Service 3: Cinema Ads -->
+                    <div class="relative bg-white dark:bg-[#1e1e1e] rounded-2xl p-6 md:p-8 shadow-[0_4px_20px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(128,1,128,0.12)] hover:-translate-y-2 transition-all duration-300 group overflow-hidden border border-gray-100 dark:border-gray-800 flex flex-col h-full reveal-fade-up" style="transition-delay: 300ms;">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                        <div class="w-full h-32 bg-gray-50 dark:bg-[#1e1e1e] rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary/5 transition-colors duration-300">
+                            <i class="ph-fill ph-film-strip text-5xl text-primary"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Cinema-Ads</h4>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed flex-grow">Engage completely focused audiences on the big screen right before blockbusters.</p>
+                        <a href="services.html" class="inline-flex items-center text-primary dark:text-primaryLighter font-bold tracking-wider text-sm uppercase group/link mt-auto transition-colors hover:text-primaryLight">
+                            Learn More 
+                            <i class="ph-bold ph-arrow-right ml-2 transform group-hover/link:translate-x-1 transition-transform duration-300"></i>
+                        </a>
                     </div>
-                    <div class="service-card reveal" style="transition-delay: 0.4s;">
-                        <div class="service-icon"><i class="ph ph-monitor-play"></i></div>
-                        <h3>Digital Outdoor</h3>
-                        <p>Dynamic, eye-catching digital displays allowing for multiple creatives and real-time updates.</p>
-                        <a href="services.html" class="service-link">Learn more <i class="ph ph-arrow-right"></i></a>
+                    
+                    <!-- Service 4: Indoor Branding -->
+                    <div class="relative bg-white dark:bg-[#1e1e1e] rounded-2xl p-6 md:p-8 shadow-[0_4px_20px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(128,1,128,0.12)] hover:-translate-y-2 transition-all duration-300 group overflow-hidden border border-gray-100 dark:border-gray-800 flex flex-col h-full reveal-fade-up" style="transition-delay: 400ms;">
+                        <div class="absolute top-0 left-0 w-full h-1 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                        <div class="w-full h-32 bg-gray-50 dark:bg-[#1e1e1e] rounded-xl flex items-center justify-center mb-6 group-hover:bg-primary/5 transition-colors duration-300">
+                            <i class="ph-fill ph-buildings text-5xl text-primary"></i>
+                        </div>
+                        <h4 class="text-xl font-bold text-gray-900 dark:text-white mb-3">Indoor-Branding</h4>
+                        <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed flex-grow">Creative visual solutions for corporate lobbys, retail stores, and commercial interiors.</p>
+                        <a href="services.html" class="inline-flex items-center text-primary dark:text-primaryLighter font-bold tracking-wider text-sm uppercase group/link mt-auto transition-colors hover:text-primaryLight">
+                            Learn More 
+                            <i class="ph-bold ph-arrow-right ml-2 transform group-hover/link:translate-x-1 transition-transform duration-300"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Why Choose Us -->
-        <section class="features section-padding">
-            <div class="container features-container">
-                <div class="features-image reveal">
-                    <img src="images/highway_billboard.png" alt="Highway Billboard Marketing" class="rounded-image shadow-lg">
+        <!-- PORTFOLIO SECTION -->
+        <section class="py-24 bg-gray-50 dark:bg-[#121212]">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col sm:flex-row justify-between items-end mb-12 reveal-fade-up">
+                    <div>
+                        <h2 class="text-primary dark:text-primaryLighter font-bold tracking-wider uppercase text-sm mb-3">Our Work</h2>
+                        <h3 class="text-4xl font-bold text-gray-900 dark:text-white">Featured Campaigns</h3>
+                    </div>
+                    <a href="portfolio.html" class="hidden sm:inline-flex items-center px-6 py-2.5 border-2 border-primary text-primary dark:text-primaryLighter font-semibold rounded-full hover:bg-primary hover:text-white transition-colors">
+                        Explore More
+                    </a>
                 </div>
-                <div class="features-content reveal" style="transition-delay: 0.2s;">
-                    <h2>Why Partner With <span class="text-primary">Us?</span></h2>
-                    <p class="features-text">We don't just sell ad space; we craft visibility strategies that deliver measurable ROI and unforgettable brand experiences.</p>
-                    <ul class="features-list">
-                        <li>
-                            <i class="ph-fill ph-check-circle text-primary"></i>
-                            <div>
-                                <h4>Wide Network Across Cities</h4>
-                                <p>Access to over 10,000 premium ad spaces nationwide.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="ph-fill ph-check-circle text-primary"></i>
-                            <div>
-                                <h4>High-Visibility Locations</h4>
-                                <p>We secure the busiest intersections and highways.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="ph-fill ph-check-circle text-primary"></i>
-                            <div>
-                                <h4>Cost-Effective Campaigns</h4>
-                                <p>Optimized media planning to suit your budget.</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <!-- Mini Portfolio -->
-        <section class="portfolio-mini section-padding bg-subtle">
-            <div class="container">
-                <div class="section-header text-center reveal">
-                    <h2>Featured <span class="text-primary">Campaigns</span></h2>
-                    <p>See how we've helped brands command attention in the real world.</p>
-                </div>
-                <div class="portfolio-grid grid-3">
-                    <div class="portfolio-item reveal" style="transition-delay: 0.1s;">
-                        <img src="images/transit_ad.png" alt="Transit Ad Campaign">
-                        <div class="portfolio-overlay">
-                            <h3>City Transit Wrap</h3>
-                            <p>Urban Mobility Ad</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Portfolio Image 1 -->
+                    <a href="portfolio.html" class="group relative block h-80 rounded-2xl overflow-hidden shadow-md reveal-fade-up" style="transition-delay: 100ms;">
+                        <img src="assets/Gantries and unipoles/WhatsApp Image 2025-11-11 at 2.54.44 PM.jpeg" alt="Gantries and Unipoles" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <h4 class="text-white font-bold text-xl">Downtown Digital</h4>
+                            <p class="text-white/90 text-sm">Tech Brand Campaign</p>
                         </div>
-                    </div>
-                    <div class="portfolio-item reveal" style="transition-delay: 0.2s;">
-                        <img src="images/hero_billboard.png" alt="Digital Billboard">
-                        <div class="portfolio-overlay">
-                            <h3>Downtown Digital</h3>
-                            <p>DOOH Campaign</p>
+                    </a>
+                    
+                    <!-- Portfolio Image 2 -->
+                    <a href="portfolio.html" class="group relative block h-80 rounded-2xl overflow-hidden shadow-md reveal-fade-up" style="transition-delay: 200ms;">
+                        <img src="assets/Highway hoardings/WhatsApp Image 2026-03-18 at 10.44.15 PM.jpeg" alt="Highway Hoardings" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <h4 class="text-white font-bold text-xl">Highway Domination</h4>
+                            <p class="text-white/90 text-sm">Automotive Launch</p>
                         </div>
-                    </div>
-                    <div class="portfolio-item reveal" style="transition-delay: 0.3s;">
-                        <img src="images/highway_billboard.png" alt="Highway Ad">
-                        <div class="portfolio-overlay">
-                            <h3>Highway Domination</h3>
-                            <p>Traditional Billboard</p>
+                    </a>
+                    
+                    <!-- Portfolio Image 3 -->
+                    <a href="portfolio.html" class="group relative block h-80 rounded-2xl overflow-hidden shadow-md reveal-fade-up" style="transition-delay: 300ms;">
+                        <img src="assets/Vehicle branding/WhatsApp Image 2026-03-18 at 10.34.24 PM.jpeg" alt="Vehicle Branding" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
+                            <h4 class="text-white font-bold text-xl">City Transit Wrap</h4>
+                            <p class="text-white/90 text-sm">FMCG Product Promotion</p>
                         </div>
-                    </div>
+                    </a>
                 </div>
-                <div class="text-center mt-40 reveal">
-                    <a href="portfolio.html" class="btn btn-outline">View Full Portfolio</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA Section -->
-        <section class="cta-section reveal">
-            <div class="container">
-                <div class="cta-box">
-                    <h2>Let’s grow your brand with impactful outdoor advertising</h2>
-                    <p>Ready to stand out? Contact our experts today for a customized proposal.</p>
-                    <div class="cta-actions">
-                        <a href="contact.html" class="btn btn-primary" style="background: white; color: var(--primary);">Get Started Now</a>
-                    </div>
+                
+                <div class="mt-10 text-center sm:hidden reveal-fade-up">
+                    <a href="portfolio.html" class="inline-flex items-center px-6 py-3 border-2 border-primary text-primary dark:text-primaryLighter font-semibold rounded-full hover:bg-primary hover:text-white transition-colors">
+                        Explore More
+                    </a>
                 </div>
             </div>
         </section>
@@ -183,74 +280,74 @@
     </main>
     
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container footer-grid">
-            <div class="footer-brand">
-                <a href="index.html" class="logo">
-                    <i class="ph ph-megaphone"></i> Impact<span class="text-primary">Outdoors</span>
-                </a>
-                <p>Elevating brands through high-impact outdoor visibility across the nation.</p>
-                <div class="social-links">
-                    <a href="#" aria-label="Facebook"><i class="ph ph-facebook-logo"></i></a>
-                    <a href="#" aria-label="Twitter"><i class="ph ph-twitter-logo"></i></a>
-                    <a href="#" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+    <footer class="bg-gray-900 text-white pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-1">
+                    <a href="index.html" class="flex items-center space-x-2 text-white font-bold text-2xl mb-6" aria-label="C Advertisement Home">
+                        <img src="assets/Logo/C-ad without tagline.png" alt="C Advertisement Logo" class="h-10 w-auto">
+                        <span>C Advertisement</span>
+                    </a>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Elevating brands through high-impact outdoor visibility across the nation. Your story, our stage.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="portfolio.html" class="text-gray-400 hover:text-white transition-colors">Our Portfolio</a></li>
+                        <li><a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Our Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors">Outdoor-Ads</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors">Mall-Ads</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors">Cinema-Ads</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition-colors">Indoor-Branding</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Contact Us</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start text-gray-400">
+                            <i class="ph-fill ph-map-pin text-primary dark:text-primaryLighter mt-1 mr-3 text-lg"></i>
+                            <span>123 Visibility Ave, <br>Ad City, AC 10001</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="ph-fill ph-phone text-primary dark:text-primaryLighter mr-3 text-lg"></i>
+                            <span>+1 (555) 123-4567</span>
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="ph-fill ph-envelope-simple text-primary dark:text-primaryLighter mr-3 text-lg"></i>
+                            <span>hello@cadvertisement.com</span>
+                        </li>
+                    </ul>
                 </div>
             </div>
             
-            <div class="footer-links">
-                <h3>Quick Links</h3>
-                <a href="index.html">Home</a>
-                <a href="about.html">About Us</a>
-                <a href="portfolio.html">Our Portfolio</a>
-                <a href="contact.html">Contact</a>
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                <p>&copy; <span id="year"></span> C Advertisement. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" aria-label="Facebook" class="hover:text-white transition-colors"><i class="ph-fill ph-facebook-logo text-xl"></i></a>
+                    <a href="#" aria-label="Twitter" class="hover:text-white transition-colors"><i class="ph-fill ph-twitter-logo text-xl"></i></a>
+                    <a href="#" aria-label="LinkedIn" class="hover:text-white transition-colors"><i class="ph-fill ph-linkedin-logo text-xl"></i></a>
+                    <a href="#" aria-label="Instagram" class="hover:text-white transition-colors"><i class="ph-fill ph-instagram-logo text-xl"></i></a>
+                </div>
             </div>
-            
-            <div class="footer-services">
-                <h3>Our Services</h3>
-                <a href="services.html">Billboard Advertising</a>
-                <a href="services.html">Digital Outdoor Ads</a>
-                <a href="services.html">Transit Media</a>
-                <a href="services.html">Hoardings</a>
-            </div>
-            
-            <div class="footer-contact">
-                <h3>Contact Us</h3>
-                <p><i class="ph ph-map-pin"></i> 123 Visibility Ave, Ad City, AC 10001</p>
-                <p><i class="ph ph-phone"></i> +1 (555) 123-4567</p>
-                <p><i class="ph ph-envelope-simple"></i> hello@impactoutdoors.com</p>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; <script>document.write(new Date().getFullYear())</script> ImpactOutdoors. Built for impact.</p>
         </div>
     </footer>
     
-    <!-- Mobile Bottom Navigation -->
-    <nav class="mobile-nav">
-        <a href="index.html" class="mobile-nav-item active">
-            <i class="ph ph-house"></i>
-            <span class="mobile-nav-text">Home</span>
-        </a>
-        <a href="about.html" class="mobile-nav-item">
-            <i class="ph ph-info"></i>
-            <span class="mobile-nav-text">About</span>
-        </a>
-        <a href="services.html" class="mobile-nav-item">
-            <i class="ph ph-sparkle"></i>
-            <span class="mobile-nav-text">Services</span>
-        </a>
-        <a href="portfolio.html" class="mobile-nav-item">
-            <i class="ph ph-image"></i>
-            <span class="mobile-nav-text">Portfolio</span>
-        </a>
-        <a href="contact.html" class="mobile-nav-item">
-            <i class="ph ph-envelope-simple"></i>
-            <span class="mobile-nav-text">Contact</span>
-        </a>
-    </nav>
-
     <!-- Custom JS -->
     <script src="js/main.js"></script>
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
