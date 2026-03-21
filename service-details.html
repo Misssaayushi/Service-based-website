@@ -213,7 +213,7 @@
             const heroImg = document.getElementById('service-hero-img');
             heroImg.src = data.heroImg;
             heroImg.alt = data.title;
-            if (serviceId === 'cinema-ads') {
+            if (serviceId === 'cinema-ads' || serviceId === 'mall-ads') {
                 heroImg.classList.remove('object-cover');
                 heroImg.classList.add('object-contain', 'bg-gray-900');
             }
@@ -221,8 +221,7 @@
 
             const galleryContainer = document.getElementById('service-gallery');
             data.gallery.forEach((imgSrc, index) => {
-                const isCinema = serviceId === 'cinema-ads';
-                const imgClass = isCinema ? 'object-contain bg-gray-100 dark:bg-gray-800' : 'object-cover';
+                const imgClass = (serviceId === 'cinema-ads' || serviceId === 'mall-ads') ? 'object-contain bg-gray-100 dark:bg-gray-800' : 'object-cover';
                 
                 const div = document.createElement('div');
                 div.className = 'group relative h-72 rounded-2xl overflow-hidden shadow-md reveal-fade-up';
