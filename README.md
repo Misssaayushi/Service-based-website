@@ -9,7 +9,7 @@ A modern, clean, and professional 5-page service website built for **C-Advertise
 *   **Dark Mode Support:** Fully integrated dark mode with customized lighter purple (`#d98cd9`) text overrides ensuring perfect readability across themes.
 *   **Scroll Animations:** Smooth component reveal animations and a dynamic stat count-up powered by Vanilla JS `IntersectionObserver`.
 *   **Tailwind CSS Integration:** Rapid, utility-first styling implemented directly via the Tailwind CSS CDN.
-*   **Core Services Refined:** Tailored completely to focus on *Outdoor-Ads*, *Mall-Ads*, *Cinema-Ads*, and *Indoor-Branding*.
+*   **Core Services Refined:** Tailored completely to focus on *Outdoor-Ads*, *Mall-Ads*, *Cinema-Ads*, and *Store-Branding*.
 *   **Fully Responsive:** Fluid layouts designed mobile-first, looking excellent on all device sizes.
 
 ## 📁 Project Structure
